@@ -8,50 +8,20 @@
     <script src="js/script.js"></script>
   </head>
   <body ng-app>
-    <div ng-controller="EventCtrl">      
-    </div>
-
-    <div>
-      <p>In the entire AngularJS framework, there are only three events being emitted </p>
-        <ol>
-          <li>$includeContentRequested</li>
-          <li>$includeContentLoaded</li>
-          <li>$viewContentLoaded</li>
-        </ol>
-        
-        <p>And seven events being broadcasted :</p>
-        <ol>
-          
-          <li>$locationChangeStart</li>
-          <li>$locationChangeSuccess</li>
-          <li>$routeUpdate</li>
-          <li>$routeChangeStart</li>
-          <li>$routeChangeSuccess</li>
-          <li>$routeChangeError</li>
-          <li>$destr</li>
-        </ol> 
-        As you can see, scope events are used very sparingly and we should evaluate other options 
-        (mostly the two-way data binding) before ending custom events.
-      </p>
-    </div>
-
-    <div>
-      <p> 
-        We can listen to the <b>$locationChangeSuccess</b> event (broadcasted from the <b> $rootScope instance</b>) 
-        to be notified whenever a location (URL in a browser) changes.
-      </p>
-
-      <p>
-        Similar to the DOM events, we can call the <b>preventDefault()</b> and <b>stopPropagation()</b> methods on event object. 
-        The <b>stopPropagation()</b> method call will prevent an event from bubbling up the scopes' hierarchy, 
-        and is available only for events dispatched upwards in the hierarchy (<b>$emit</b>).
-      </p>      
-    </div>
-    <blockquote>
-      Don't try to mimic the DOM event-based programming model in AngularJS. <br>
-      Most of the time there are better ways of structuring your application, and you can go very far with the two-way data binding.
-    </blockquote>
-
+   
+  <div>
+    <p>
+      After a browser is done transforming the markup's text to the DOM tree, 
+      AngularJS kicks in and traverses the parsed DOM structure. <br>
+      Each time it encounters a directive, AngularJS executes its logic to turn 
+      directives into dynamic parts of the screen.
+    </p>
+    <p>
+      It is almost similar to creating a new <em>domain-specific language</em><em> (<b>DSL</b>)</em> on top of HTML 
+      and instructing a browser on how to make sense of the new instructions. <br>
+      You can often hear that AngularJS "teaches browsers new tricks".
+    </p>
+  </div>
   </body>
 
 </html>
