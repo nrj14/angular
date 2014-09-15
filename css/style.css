@@ -5,3 +5,6 @@ body{
 blockquote{
 	font-style: italic;
 }
+.text-warning{
+	color : red;
+}

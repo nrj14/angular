@@ -3,24 +3,21 @@
 
   <head>
   	<title>angular</title>
+    <link rel="stylesheet" href="css/foundation.css">
   	<link rel="stylesheet" href="css/style.css" />
+    <script src="js/vendor/modernizr.js"></script>
     <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="js/angular.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body ng-app>
    
   <div>
-    <p>
-      After a browser is done transforming the markup's text to the DOM tree, 
-      AngularJS kicks in and traverses the parsed DOM structure. <br>
-      Each time it encounters a directive, AngularJS executes its logic to turn 
-      directives into dynamic parts of the screen.
-    </p>
-    <p>
-      It is almost similar to creating a new <em>domain-specific language</em><em> (<b>DSL</b>)</em> on top of HTML 
-      and instructing a browser on how to make sense of the new instructions. <br>
-      You can often hear that AngularJS "teaches browsers new tricks".
-    </p>
+    <form ng-controller="FormController">
+      <p>Remaining : <span  ng-class="{'text-warning' : overflow()}"> {{remaining}}</span></p>
+      <textarea ng-model="message"type="text"> </textarea>
+      <button class="success" ng-click="send()"  ng-disabled="overflow() || empty()">Send</button>
+      <button class="alert" ng-click="clear()">Clear</button>
+    </form>
   </div>
   </body>
 
