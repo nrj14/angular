@@ -3,17 +3,26 @@
 
   <head>
   	<title>angular</title>
-  	<link rel="stylesheet" href="style.css" />
+  	<link rel="stylesheet" href="css/style.css" />
     <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="js/angular.js"></script>
     <script src="js/script.js"></script>
   </head>
 
   <body ng-app>
-    <h1>Hello Plunker!</h1>
-    <div ng-controller = "hController">
-      <input ng-model="name" ng-init="world"type="text">
-      <p>{{name}}</p>
-    </div>
+    <h1>Hello Angular!</h1>
+    <ul ng-controller="WorldCtrl">
+      <h2>World's population: {{population()|number:0}} millions</h2>
+      <li ng-repeat="country in countries">
+        {{country.name}} has population of {{country.population|number:0}} 
+      </li>
+      <hr>
+     
+    </ul>
   </body>
 
 </html>
+
+
+<!--  <li ng-repeat="country in countries">
+        {{country.name}} has population of {{country.population|number:0}} 
+      </li> -->
