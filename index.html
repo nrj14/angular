@@ -7,17 +7,51 @@
     <script data-require="angular.js@1.2.22" data-semver="1.2.22" src="js/angular.js"></script>
     <script src="js/script.js"></script>
   </head>
-  <body ng-app ng-init="name='World'; thing ={name : 'thing'}">
-    <h1>Hello, {{name}}</h1>
-    <div ng-controller="HelloCtrl">
-      Say hello to: <input type="text" ng-model="name">
-      <h2>Hello, {{name}}!</h2>
-      <hr>
-      say hello to <input ng-model="thing.name" type="text">
-      <h2>say hello to {{thing.name}}</h2>
-       age <input ng-model="thing.age" type="text">
-       
+  <body ng-app>
+    <div ng-controller="EventCtrl">      
     </div>
- </body>
+
+    <div>
+      <p>In the entire AngularJS framework, there are only three events being emitted </p>
+        <ol>
+          <li>$includeContentRequested</li>
+          <li>$includeContentLoaded</li>
+          <li>$viewContentLoaded</li>
+        </ol>
+        
+        <p>And seven events being broadcasted :</p>
+        <ol>
+          
+          <li>$locationChangeStart</li>
+          <li>$locationChangeSuccess</li>
+          <li>$routeUpdate</li>
+          <li>$routeChangeStart</li>
+          <li>$routeChangeSuccess</li>
+          <li>$routeChangeError</li>
+          <li>$destr</li>
+        </ol> 
+        As you can see, scope events are used very sparingly and we should evaluate other options 
+        (mostly the two-way data binding) before ending custom events.
+      </p>
+    </div>
+
+    <div>
+      <p> 
+        We can listen to the <b>$locationChangeSuccess</b> event (broadcasted from the <b> $rootScope instance</b>) 
+        to be notified whenever a location (URL in a browser) changes.
+      </p>
+
+      <p>
+        Similar to the DOM events, we can call the <b>preventDefault()</b> and <b>stopPropagation()</b> methods on event object. 
+        The <b>stopPropagation()</b> method call will prevent an event from bubbling up the scopes' hierarchy, 
+        and is available only for events dispatched upwards in the hierarchy (<b>$emit</b>).
+      </p>      
+    </div>
+    <blockquote>
+      Don't try to mimic the DOM event-based programming model in AngularJS. <br>
+      Most of the time there are better ways of structuring your application, and you can go very far with the two-way data binding.
+    </blockquote>
+
+  </body>
 
 </html>
